@@ -1,0 +1,6 @@
+{
+    "app-name": "GDShare",
+    "app-icon": "icon.ico",
+    "app-desc": "Save & load GD levels as files, securely.",
+    "app-repo": "https://github.com/HJfod/gdshare"
+}

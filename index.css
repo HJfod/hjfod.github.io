@@ -1,0 +1,73 @@
+:root {
+    --c-text:               #fff;
+    --c-bg:                 #000;
+    --c-hover:              rgba(255,255,255,.4);
+
+    --s-app-img:            100px;
+    --s-pad:                20px;
+    --s-corner:             5px;
+
+    --trans:                .1s;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap');
+
+body {
+    margin: 0px;
+    padding: 0px;
+    background-color: var(--c-bg);
+    color: var(--c-text);
+    font-family: 'Open Sans';
+}
+
+.title-container {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    position: absolute;
+    height: 40%;
+    width: 50%;
+    top: 10%;
+    left: 25%;
+}
+
+.app-container {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    position: absolute;
+    height: 40%;
+    width: 50%;
+    top: 50%;
+    left: 25%;
+}
+
+header {
+    font-size: 4vw;
+    font-family: 'Open Sans';
+    font-weight: 300;
+    align-self: center;
+}
+
+app-img {
+    padding: var(--s-pad);
+    height: 50%;
+    background-color: rgba(0,0,0,0);
+    display: flex;
+    align-content: center;
+    text-align: center;
+    justify-content: center;
+    margin-left: var(--s-pad);
+    margin-right: var(--s-pad);
+    font-size: 1.5vw;
+    border-radius: var(--s-corner);
+    transition: background-color var(--trans);
+}
+
+app-img text {
+    align-self: flex-end;
+}
+
+app-img:hover {
+    background-color: var(--c-hover);
+}
