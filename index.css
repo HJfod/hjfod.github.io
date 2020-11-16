@@ -1,13 +1,17 @@
 :root {
     --c-text:               #fff;
     --c-bg:                 #000;
-    --c-hover:              rgba(255,255,255,.4);
+    --c-hover:              rgba(255,255,255,.2);
+    --c-button:             rgba(0, 0, 0, .3);
+    --c-button-hover:       rgba(100, 100, 100, .5);
+    --c-select-bg:          linear-gradient(to right, #222, #333);
 
     --s-app-img:            100px;
     --s-pad:                20px;
     --s-corner:             5px;
 
     --trans:                .1s;
+    --trans-long:           1s;
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap');
@@ -50,9 +54,10 @@ header {
 }
 
 app-img {
-    padding: var(--s-pad);
+    padding-bottom: var(--s-pad);
+    width: 10vw;
     height: 50%;
-    background-color: rgba(0,0,0,0);
+    background: rgba(0,0,0,0);
     display: flex;
     align-content: center;
     text-align: center;
@@ -61,13 +66,98 @@ app-img {
     margin-right: var(--s-pad);
     font-size: 1.5vw;
     border-radius: var(--s-corner);
-    transition: background-color var(--trans);
+    transition: all var(--trans-long), background-color var(--trans);
+    flex-direction: row;
+    overflow: hidden;
+}
+
+app-img.viewing {
+    width: 40vw;
+    background: var(--c-select-bg);
+}
+
+app-img app-prev {
+    flex-direction: column;
+    width: 10vw;
+    height: 100%;
+    display: flex;
+    padding: 0px;
+    margin: 0px;
+    padding-top: var(--s-pad);
+}
+
+app-img app-desc {
+    padding-top: var(--s-pad);
+    padding-bottom: var(--s-pad);
+    opacity: 0;
+    width: 0px;
+    height: 0px;
+    align-content: center;
+    justify-content: center;
+    flex-direction: column;
+    user-select: none;
+    display: flex;
+    pointer-events: none;
+    transition-duration: var(--trans-long);
+}
+
+app-desc app-butt {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+}
+
+app-desc app-butt button {
+    border: none;
+    padding: calc( var(--s-pad) / 2 );
+    border-radius: calc( var(--s-corner) / 2 );
+    display: inline-block;
+    background-color: var(--c-button);
+    transition-duration: var(--trans);
+    color: var(--c-text);
+    margin-left: calc( var(--s-pad) / 2 );
+    margin-right: calc( var(--s-pad) / 2 );
+}
+
+app-desc * {
+    margin-top: var(--s-pad);
+}
+
+app-desc app-butt button:hover {
+    background-color: var(--c-button-hover);
+}
+
+app-img.viewing app-desc {
+    opacity: 1;
+    height: initial;
+    width: calc(100% - 10vw);
+    pointer-events: initial;
+}
+
+app-img.hide {
+    opacity: 0;
+    width: 0;
+    margin: 0;
+    font-size: 0vw;
+}
+
+app-img img {
+    width: 50%;
+    max-width: 6vw;
+    padding: 0px;
+    margin: 0px;
+    text-align: center;
+    align-self: center;
+    position: relative;
+    transition: width var(--trans-long), height var(--trans-long);
 }
 
 app-img text {
-    align-self: flex-end;
+    margin-top: var(--s-pad);
+    user-select: none;
 }
 
-app-img:hover {
-    background-color: var(--c-hover);
+app-img:not(.viewing):hover {
+    background: var(--c-hover);
 }
